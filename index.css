@@ -1,0 +1,114 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+#logo img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+
+h1, h2, h3, h4 {
+    color: #333;
+}
+
+h3 {
+    color: red;
+}
+
+h4 {
+    color: #0073c9;
+}
+
+/* Centered Form Styling */
+form {
+    margin-top: 20px;
+}
+
+label {
+    font-size: 18px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #0073c9;
+    border-radius: 5px;
+    width: 300px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #0073c9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #005c8a;
+}
+
+#loading img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Tables Styling */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #0073c9;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table td {
+    background-color: #ffffff;
+}
+
+/* Print Specific Styles */
+@media print {
+    #logo, #satish, #htl, #sb, #pb, #loading {
+        display: none;
+    }
+
+    body {
+        font-size: 14px;
+    }
+
+    table {
+        width: 100%;
+    }
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    font-size: 14px;
+    color: green;
+    margin-top: 20px;
+}
