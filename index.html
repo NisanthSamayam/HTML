@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Results Check</title>
-    <link rel="stylesheet" href="index.css">
     <script src="jquery.min.js"></script>
     <script>
         function validate() {
@@ -16,8 +15,8 @@
                 return false;
             }
 
-            // Show loading message
-            document.getElementById('loading').style.display = 'block';
+            // Show loading spinner
+            $('#temp').html('<div>Loading...</div>');
 
             $.ajax({
                 type: "POST",
@@ -25,35 +24,24 @@
                 data: { ht: htno.value },
                 error: function() {
                     alert("Connection problem");
-                    document.getElementById('loading').style.display = 'none';
+                    $('#temp').html('');
                 },
                 success: function(msg) {
                     document.getElementById('agg').innerHTML = "";
                     document.getElementById('name').innerHTML = "";
                     document.getElementById('result').innerHTML = "";
                     document.getElementById('ovr').innerHTML = "";
-                    
-                    $('#temp').html(msg);
-
-                    // Hide loading message once results are received
-                    document.getElementById('loading').style.display = 'none';
+                    $('#temp').html(msg); // Display results
                 }
             });
 
             return false;
         }
     </script>
-    <style>
-        @media print {
-            #logo, #satish, #htl, #sb, #pb, #loading {
-                display: none;
-            }
-        }
-    </style>
 </head>
 <body>
     <div align="center" id="logo">
-        <h1><img src="https://sasi.ac.in/wp-content/uploads/2024/08/SASI-LOGO-960x188-1-800x157-1.png" alt="SASI Logo" height="15%"></h1>
+        <h1><img src="https://sasi.ac.in/wp-content/uploads/2024/08/SASI-LOGO-960x188-1-800x157-1.png" alt="Logo" height="15%"></h1>
     </div>
 
     <table id="satish" align="center" border="0">
@@ -65,12 +53,8 @@
     <form name="results" onsubmit="return validate()">
         <div align="center">
             <label id="htl" for="ht"><b>Enter Hall Ticket Number:</b></label>
-            <input name="ht" id="ht" placeholder="Hall ticket no." type="text" required>
+            <input name="ht" id="ht" placeholder="Hall ticket no." type="text">
             <button type="submit" name="sb" id="sb">Search</button>
-        </div>
-
-        <div id="loading" style="display: none; text-align: center;">
-            <img src="loading.gif" alt="Loading...">
         </div>
 
         <div align="center">
@@ -89,11 +73,11 @@
 
     <div align="center">
         <table width="50%" border="0">
-            <tr style="color: green; font-weight: bold;">
-                <td>*Last date for Revaluation: 30-12-2024</td>
-            </tr>
+            <tr style="color: green; font-weight: bold;"><td>*Last date for Revaluation: 30-12-2024</td></tr>
         </table>
     </div>
+    
     <div id="temp"></div>
 </body>
 </html>
+
